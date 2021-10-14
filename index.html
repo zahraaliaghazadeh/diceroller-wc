@@ -88,6 +88,7 @@
           
               
             function randomColorChooser(){
+                // function to find a random color from a list of them
                 let arr = ["red", "blue", "green"]
                 // find a random element from a list
                 let newEl = arr[Math.floor(Math.random() * arr.length)]
@@ -97,11 +98,11 @@
 
             function changeColor() {
                 let newColor = randomColorChooser()
-                document.button.style.font = newColor;
+                button.style.background = newColor;
             }
 
             function runDiceRoller() {
-                changeColor(newColor);
+                changeColor();
             }  
             // ------------
 

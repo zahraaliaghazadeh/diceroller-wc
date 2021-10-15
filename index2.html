@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<!-- This version of code uses the assignment requirements -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Lecture 4, Let's Go Scripting</title>
+    <style>
+        /* div {
+            height: 50px;
+            width: 50px;
+            background-color: purple;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- <div id="main-div"></div> -->
+    <my-box color="brown"></my-box>
+    <script>
+
+        const boxTemplate = document.createElement('custom-box');
+
+        boxTemplate.innerHTML = `
+            <style>
+                button {
+                    height: 100px;
+                    width: 100px;
+                    background-color: red;
+                }
+            </style>
+            <button></button>
+
+            `;
+
+        class MyBox extends HTMLElement {
+
+            constructor() {
+                super();
+                // const customHTML = document.createElement('div');
+                // customHTML.innerText = this.getAttribute('text');
+                // const color = this.getAttribute('color');
+                this.attachShadow({ mode: 'open' })
+                this.shadowRoot.appendChild(boxTemplate.cloneNode(true));
+
+            }
+
+            toggleColor() {
+                console.log('hello');
+                // this.shadowRoot.querySelector('button').style.backgroundColor = 'orange';
+                this.shadowRoot.querySelector('button').style.backgroundColor = changeColor();
+
+            }
+
+            showRandomNumber() {
+                // this.shadowRoot.querySelector('button').innerHTML = '5';
+                this.shadowRoot.querySelector('button').innerHTML = randomNumber();
+            }
+
+            connectedCallback() {
+                this.shadowRoot.querySelector('button')
+                    .addEventListener('click',
+                        () => {
+                            this.toggleColor();
+                            this.showRandomNumber();
+                        })
+            }
+
+            randomColorChooser() {
+            // function to find a random color from a list of them
+            let arr = ["red", "blue", "green"]
+            // find a random element from a list
+            let newEl = arr[Math.floor(Math.random() * arr.length)]
+            // console.log(newEl)
+            return (newEl)
+        }
+
+            randomNumber() {
+            //  random number between 1 and 6
+            let diceValue = Math.floor(Math.random() * 6 + 1)
+            // console.log(diceValue)
+            return (diceValue)
+        }
+
+            changeColor() {
+            let newColor = randomColorChooser()
+            // button.style.background = newColor;
+        }
+
+    }
+
+        window.customElements.define('my-box', MyBox);
+
+    </script>
+</body>
+
+</html>

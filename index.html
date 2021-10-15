@@ -26,6 +26,9 @@
             Click here
         </button>
           
+        <div id="output-dice" onclick= "runDiceRoller()">
+
+        </div>
 
 
         <script>
@@ -82,6 +85,7 @@
             // var el_up = document.getElementById("GFG_UP");
             // var el_down = document.getElementById("GFG_DOWN");
             const button = document.getElementById("button");
+            const outputDice = document.getElementById("output-dice");
             // var str = "Click on button to change the background color";
           
             // el_up.innerHTML = str;
@@ -92,17 +96,30 @@
                 let arr = ["red", "blue", "green"]
                 // find a random element from a list
                 let newEl = arr[Math.floor(Math.random() * arr.length)]
-                console.log(newEl)
+                // console.log(newEl)
                 return(newEl)
             }
+
+
+            function randomNumber(){
+                //  random number between 1 and 6
+                let diceValue = Math.floor(Math.random() * 6 + 1)
+                // console.log(diceValue)
+                return (diceValue)
+
+            }
+
 
             function changeColor() {
                 let newColor = randomColorChooser()
                 button.style.background = newColor;
             }
 
+
             function runDiceRoller() {
                 changeColor();
+                randomNumber();
+                outputDice.innerHTML = randomNumber().toString()
             }  
             // ------------
 

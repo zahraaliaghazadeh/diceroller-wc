@@ -49,13 +49,15 @@
             toggleColor() {
                 console.log('hello');
                 // this.shadowRoot.querySelector('button').style.backgroundColor = 'orange';
-                this.shadowRoot.querySelector('button').style.backgroundColor = changeColor();
+                let arr = ["red", "blue", "green"]
+                this.shadowRoot.querySelector('button').style.backgroundColor = (arr[Math.floor(Math.random() * arr.length)]).toString();
+
 
             }
 
             showRandomNumber() {
                 // this.shadowRoot.querySelector('button').innerHTML = '5';
-                this.shadowRoot.querySelector('button').innerHTML = randomNumber();
+                this.shadowRoot.querySelector('button').innerHTML = (Math.floor(Math.random() * 6 + 1)).toString();
             }
 
             connectedCallback() {
@@ -67,26 +69,26 @@
                         })
             }
 
-            randomColorChooser() {
-            // function to find a random color from a list of them
-            let arr = ["red", "blue", "green"]
-            // find a random element from a list
-            let newEl = arr[Math.floor(Math.random() * arr.length)]
-            // console.log(newEl)
-            return (newEl)
-        }
+        //     randomColorChooser() {
+        //     // function to find a random color from a list of them
+        //     let arr = ["red", "blue", "green"]
+        //     // find a random element from a list
+        //     let newEl = arr[Math.floor(Math.random() * arr.length)]
+        //     // console.log(newEl)
+        //     return (newEl)
+        // }
 
-            randomNumber() {
-            //  random number between 1 and 6
-            let diceValue = Math.floor(Math.random() * 6 + 1)
-            // console.log(diceValue)
-            return (diceValue)
-        }
+        //     randomNumber() {
+        //     //  random number between 1 and 6
+        //     let diceValue = Math.floor(Math.random() * 6 + 1)
+        //     // console.log(diceValue)
+        //     return (diceValue)
+        // }
 
-            changeColor() {
-            let newColor = randomColorChooser()
-            // button.style.background = newColor;
-        }
+        //     changeColor() {
+        //     let newColor = randomColorChooser()
+        //     // button.style.background = newColor;
+        // }
 
     }
 

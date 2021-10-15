@@ -18,12 +18,12 @@ Create a Web Component (using the class HTMLElement, template and shadow dom lik
 
 ## Gif
 
-This was my version
+This was my version using helper functions and web component<br>
 ![gif1](gif1.gif)
 
 <hr>
 
-This was with the class HTMLElement, template and shadow dom
+This was with the class HTMLElement, template and shadow dom <br>
 ![gif2](gif2.gif)
 
 
